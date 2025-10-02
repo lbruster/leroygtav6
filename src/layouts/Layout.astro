@@ -1,0 +1,95 @@
+---
+import KeepScrolling from "@/assets/keep-scrolling.svg"
+---
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<!--         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" integrity="sha512-NcZdtrT77bJr4STcmsGAESr06BYGE8woZdSdEgqnpyqac7sugNO+Tr4bGwGF3MsnEkGKhU2KL2xh6Ec+BqsaHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" integrity="sha512-P2IDYZfqSwjcSjX0BKeNhwRUH8zRPGlgcWl5n6gBLzdi4Y5/0O4zaXrtO4K9TZK6Hn1BenYpKowuCavNandERg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+		<title>Landing GTA VI by Leroy</title>
+	</head>
+	<body>
+        <slot />
+        <KeepScrolling class="fixed bottom-3 right-0 left-0 mx-auto text-pink-300 drop-shadow-2xl animate-bounce-pulse"/>
+	</body>
+</html>
+
+<style is:global>
+    @import "tailwindcss";
+
+  @theme {
+    --font-sans: "GTA", system-ui, sans-serif;
+    --font-narrow: "GTANarrow", system-ui, sans-serif;
+
+    --animate-bounce-pulse: bounce-pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes bounce-pulse {
+    0% {
+      transform: translateY(0);
+      scale: 0.8;
+      opacity: 0.8;
+    }
+
+    50% {
+      transform: translateY(-5px);
+      opacity: 1;
+      scale: 1;
+    }
+
+    100% {
+      transform: translateY(0);
+      scale: 0.8;
+      opacity: 0.8;
+    }
+  }
+
+  html,
+  body {
+    background: #111;
+    height: 300vh;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+    color: white;
+    margin: 0;
+    width: 100%;
+  }
+
+  @font-face {
+    font-family: GTA;
+    src: url("/fonts/gta-regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: GTA;
+    src: url("/fonts/gta-bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: GTA;
+    src: url("/fonts/gta-semibold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: GTANarrow;
+    src: url("/fonts/gta-narrow.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+</style>
